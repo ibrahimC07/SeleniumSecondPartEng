@@ -46,6 +46,7 @@ public class extentReportsNew {
         extentTest.pass("Pressed Enter");
 
         driver.close();
+        driver.quit();
         extentTest.pass("driver closed");
         extentTest.info("finish");
 
