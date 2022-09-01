@@ -1,4 +1,4 @@
-package PracticeYasin02;
+package Practice02;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -36,8 +36,8 @@ public class Homework5  {
     public void test(){
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
 
-        addButton(driver,100);
-        deleteButton(driver,95);
+        addButton(driver,10);
+        deleteButton(driver,7);
     }
     public void addButton(WebDriver driver, int addNumber) {
         int counterAdd = 0;
