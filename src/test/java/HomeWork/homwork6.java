@@ -1,6 +1,5 @@
 package HomeWork;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -35,5 +34,12 @@ public class homwork6 extends TestBase {
             }
             }
            // Assert.assertEquals(counter,counterdel);
+
+    public static class Homework14 extends TestBase {
+        @Test
+        public void test(){
+
         }
+    }
+}
 

@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -35,5 +37,16 @@ driver.findElement(By.cssSelector("#login-button")).click();
     System.out.println(allItems.get(0).getText());
     Assert.assertEquals("$7.99",allItems.get(0).getText());
     Assert.assertEquals("$49.99",allItems.get(allItems.size()-1).getText());
+    List<Double> newList = new ArrayList<>();
+
+    for(WebElement w : allItems){
+
+        newList.add(Double.valueOf(w.getText().replace("$","")));
+        newList.sort(Comparator.naturalOrder());
+    }
+
+
+
+    System.out.println(newList);
     }
 }

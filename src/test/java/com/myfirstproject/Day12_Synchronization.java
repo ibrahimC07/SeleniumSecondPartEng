@@ -3,13 +3,20 @@ package com.myfirstproject;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.TestBase;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
+/*
+https://www.selenium.dev/documentation/webdriver/waits/#fluentwait
+ */
 /*
 Create a method: explicitWait
 Go to https://the-internet.herokuapp.com/dynamic_loading/1
@@ -27,10 +34,11 @@ public class Day12_Synchronization extends TestBase {
         //if it completes before this time we should be able to continue, we used explicitWay for this
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement ActualWaitText=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']//h4")));
-
+       // boolean isTrue=wait.until(ExpectedConditions.textToBe(By.xpath("//div[@id='finish']//h4"),"Hello World!"));
+        //Assert.assertTrue(isTrue);/////(2.Way)-we use due to text part.First way is more common because find directly element
         Assert.assertEquals("Hello World!",ActualWaitText.getText());
 
-
+        //Implicit wait is not enough to handle the load issue
         //implicitly can not get because element is hidden.After click i have to wait to load page and see the element
     }
 
@@ -58,6 +66,16 @@ public class Day12_Synchronization extends TestBase {
         String helloWorldText = helloWorld.getText();
         Assert.assertEquals("Hello World!",helloWorldText);
  */
+    }
+   @Test
+    public void fluentWait(){
+       driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
+       driver.findElement(By.xpath("//div[@id='start']//button")).click();
+        Wait<WebDriver>wait=new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30)).
+                pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+
+        String wordText=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='finish']//h4"))).getText();
+       Assert.assertEquals("Hello World!",wordText);
     }
 
 }

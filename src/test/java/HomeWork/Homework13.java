@@ -29,10 +29,7 @@ public class Homework13 extends TestBase {
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement isExpected=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id='message']")));
         Assert.assertEquals("It's enabled!",isExpected.getText());
-        Assert.assertTrue(driver.findElement(By.xpath("//form[@id='input-example']//input")).isEnabled());
-
-
-        driver.findElement(By.xpath("//button[@onclick='swapInput()']")).click();
+        Assert.assertTrue(driver.findElement(By.xpath("//form[@id='input-example']//input")).isEnabled());driver.findElement(By.xpath("//button[@onclick='swapInput()']")).click();
        Boolean isDisplayed= wait.until(ExpectedConditions.textToBe(By.xpath("//p[@id='message']"),"It's disabled!"));
        Assert.assertTrue(isDisplayed);
         Assert.assertFalse(driver.findElement(By.xpath("//form[@id='input-example']//input")).isEnabled());

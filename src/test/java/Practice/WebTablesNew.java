@@ -28,12 +28,14 @@ public class WebTablesNew extends TestBase {
         System.out.println(allTable);
         List<WebElement>allRows=driver.findElements(By.xpath("//table[@id='table1']//tr"));
         for(WebElement w:allRows) {
-            //System.out.println(w.getText());
+            System.out.println(w.getText());
+
         }
             //Print Last row data only
             List<WebElement>allBodyRow=driver.findElements(By.xpath("//table[@id='table1']//tbody//tr"));
 
-                allBodyRow.get(allBodyRow.size()-1).getText();
+                allBodyRow.get(allBodyRow.size()-1).
+                        getText();
 
             //Print column 5 data in the table body
         List<WebElement>Column5=driver.findElements(By.xpath("//table[@id='table1']//tbody//tr[5]"));

@@ -1,0 +1,44 @@
+1)What are the tags on a web table?
+*Table Head/thead
+*Table Body/tbody
+*Table Row/tr
+*Table Data/td=>Cell
+
+2)How do you handle web tables?
+
+I create a WebTableList from table with locator.I can use for loop to reach all specific row or data.
+or i can create method with row and columns parameters and i use concatenation in Xpath to get specific row or cell.
+
+
+
+
+<tr>                                               X X X
+        <td> </td>                                 Y Y Y
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+        <td> </td>
+
+<td> </td> ——>How do you go to this element.
+<td> </td>
+</tr>
+
+//table[@attribute='attributeValue']//tbody//tr[2]//td[2]
+
+4)How do you get the last table data?
+First, i found column and row size
+ i create WebTable list from given table with tr and td tags. I use index inside the tr[rowsize-1]//td[columnsize-1]
+
+How do you get the element in the last column?
+First of all, i create WebTable List from given table with th tag Xpath. I use list.get() with list.size()-1
+If you want to read the last row, use get.text().
+
+
+How do you get the last row table data?
+First of all, i create WebTable List from given table with tr tag Xpath. I use list.get() with list.size()-1
+If you want to read the last row, use get.text().
+list.get(list.size-1)
+
+XPath index starts from 1
+List get index starts from 0

@@ -26,6 +26,9 @@ public class WebTablesInterview extends TestBase {
     WebElement LastCell=driver.findElement(By.xpath("//table[@id='table1']//tr["+(allRowsSize-1)+"]//td["+(columnSize)+"]"));
     System.out.println("LastCell:"+LastCell.getText());
 
+    //How to get row and column values from WebTable
+
+
        }
 
 
