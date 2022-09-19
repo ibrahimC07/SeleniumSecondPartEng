@@ -9,9 +9,9 @@ import java.util.Set;
 public class Day06_WindowHandle1 extends TestBase {
     /*
     Create a new Class Tests package: Day08_WindowHandleExample
-Method name:windowHandle
-Given user is on the https://the-internet.herokuapp.com/windows
-Then user verifies the text : “Opening a new window”
+    Method name:windowHandle
+    Given user is on the https://the-internet.herokuapp.com/windows
+    Then user verifies the text : “Opening a new window”
 Then user verifies the title of the page is “The Internet”
 When user clicks on the “Click Here” button
 Then user verifies the new window title is “New Window”
